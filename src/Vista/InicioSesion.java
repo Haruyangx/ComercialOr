@@ -157,9 +157,9 @@ public class InicioSesion extends javax.swing.JFrame {
         String contrasena = new String(txtContra.getPassword());
 
         // Conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/bdcomercial"; // Cambia según tu configuración
-        String user = "root"; // Cambia esto a tu usuario de MySQL
-        String password = ""; // Cambia esto a tu contraseña de MySQL
+        String url = "jdbc:mysql://localhost:3306/bdcomercial"; 
+        String user = "root"; 
+        String password = ""; 
 
         try (Connection conn = DriverManager.getConnection(url, user, password); PreparedStatement stmt = conn.prepareStatement("SELECT * FROM usuarios WHERE usuario = ? AND contrasena = ?")) {
 
@@ -168,11 +168,11 @@ public class InicioSesion extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                // Credenciales correctas
+
                 JOptionPane.showMessageDialog(this, "Bienvenido " + usuario + "!");
-                abrirMenu();  // Llama al método para abrir el menú
+                abrirMenu();  
             } else {
-                // Credenciales incorrectas
+
                 JOptionPane.showMessageDialog(this, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
@@ -180,7 +180,7 @@ public class InicioSesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error de conexión a la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ocurrió un error inesperado", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ocurrió un error raro", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
